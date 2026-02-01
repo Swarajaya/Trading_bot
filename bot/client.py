@@ -12,7 +12,7 @@ def get_client():
         testnet=True
     )
 
-    # 🔥 FIX TIMESTAMP ISSUE (THIS IS THE KEY)
+    
     server_time = client.get_server_time()
     server_ts = server_time["serverTime"]
     local_ts = int(time.time() * 1000)
@@ -20,3 +20,4 @@ def get_client():
     client.timestamp_offset = server_ts - local_ts
 
     return client
+
