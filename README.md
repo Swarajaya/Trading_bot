@@ -29,7 +29,7 @@ TWAP (Time-Weighted Average Price) execution
 Lightweight UI (Streamlit) for interactive trading
 
 📁 Project Structure
-trading_bot/
+Trading_bot/
 │
 ├── bot/
 │   ├── __init__.py
@@ -119,5 +119,6 @@ Order type
 Status (NEW / FILLED)
 
 Timestamp
+
 
 Full API response
