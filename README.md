@@ -43,6 +43,7 @@ Trading_bot/
 ├── trading.log             # Order logs
 ├── requirements.txt
 └── README.md
+.env is intentionally excluded via .gitignore to prevent leaking API keys.
 
 ⚙️ Setup Instructions
 1️⃣ Clone the repository
@@ -122,3 +123,4 @@ Timestamp
 
 
 Full API response
+
