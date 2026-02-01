@@ -1,35 +1,36 @@
-
- Trading Bot (Binance Spot Testnet)
+Trading Bot (Binance Spot Testnet)
 
 A Python-based trading bot with CLI + Lightweight UI, supporting multiple order types on Binance Spot Testnet.
 
-This project was built as part of a Python Developer Intern assignment, focusing on correctness, clean structure, and extensibility.
+This project was built as part of a Python Developer Intern assignment, focusing on correctness, clean structure, validation, and extensibility.
 
- Features
- Core (Required)
+⚠️ Uses Binance Spot Testnet — no real funds are involved.
+
+✨ Features
+Core (Required)
 
 Place MARKET orders
 
 Place LIMIT orders
 
-Uses Binance Spot Testnet
+Binance Spot Testnet integration
 
-Proper logging of orders
+Proper logging of all orders
 
-Clean project structure
+Clean, modular project structure
 
 CLI-based order execution
 
-⭐ Bonus (All 3 Implemented)
+⭐ Bonus (All Implemented)
 
 STOP-LIMIT order support
 
 TWAP (Time-Weighted Average Price) execution
 
-Lightweight UI (Streamlit) for interactive trading
+Lightweight Streamlit UI for interactive trading
 
 📁 Project Structure
-Trading_bot/
+trading_bot/
 │
 ├── bot/
 │   ├── __init__.py
@@ -40,10 +41,9 @@ Trading_bot/
 │
 ├── cli.py                  # CLI entry point
 ├── ui.py                   # Streamlit UI
-├── trading.log             # Order logs
+├── trading.log             # Order logs (generated at runtime)
 ├── requirements.txt
 └── README.md
-.env is intentionally excluded via .gitignore to prevent leaking API keys.
 
 ⚙️ Setup Instructions
 1️⃣ Clone the repository
@@ -64,6 +64,9 @@ Create a .env file:
 BINANCE_API_KEY=your_testnet_key
 BINANCE_API_SECRET=your_testnet_secret
 
+
+🔐 .env is intentionally excluded via .gitignore to prevent leaking API keys.
+
 🖥️ CLI Usage
 🔹 Market Order
 python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
@@ -79,20 +82,21 @@ python cli.py --symbol BTCUSDT --side SELL --type STOP_LIMIT \
 python cli.py --symbol BTCUSDT --side SELL --type TWAP \
 --quantity 0.03 --interval 5 --slices 3
 
+📌 Expected Behavior
 
-📌 Expected behavior:
+Orders execute in multiple slices (TWAP)
 
-Orders execute in slices
+Multiple API responses returned
 
-Multiple order responses returned
-
-Logs written to trading.log
+All executions logged to trading.log
 
 🌐 UI Usage (Optional Bonus)
-Run UI
+
+Run the UI:
+
 streamlit run ui.py
 
-UI Supports:
+UI Supports
 
 MARKET
 
@@ -104,23 +108,21 @@ TWAP
 
 Live JSON response display
 
-Validation + success/error feedback
+Validation with success/error feedback
 
 📝 Logs
 
-All orders are logged in:
+All orders are logged to:
 
 trading.log
 
 
-Includes:
+Logs include:
 
 Order type
 
-Status (NEW / FILLED)
+Status (NEW, FILLED)
 
 Timestamp
 
-
-Full API response
-
+Full Binance API response
